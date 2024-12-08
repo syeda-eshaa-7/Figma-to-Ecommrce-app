@@ -31,7 +31,7 @@ const Explor = () => {
         </div>
 
         {/* Grid of 4 smaller images */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
           {gridImages.map((src, index) => (
             <div key={index} className="relative w-[312px] h-[312px] p-1">
               <Image
@@ -50,5 +50,3 @@ const Explor = () => {
 };
 
 export default Explor;
-
-
