@@ -15,7 +15,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ src, alt, title, price }) => 
     <div className="p-4 md:w-1/3 sm:mb-0 mb-6 relative">
       <div className="rounded-lg h-64 overflow-hidden relative">
         {/* Wrap the image with a Link component */}
-        <Link href={`/product/${title}`} passHref>
+        <Link href={`/singlepage`} passHref>
           <Image
             alt={alt}
             className="object-cover object-center h-full w-full cursor-pointer"
@@ -35,7 +35,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ src, alt, title, price }) => 
       {/* Cart Icon - Bottom Center */}
       <div className="absolute bottom-2 right-2 text-black p-2 rounded-full">
         <Link
-          href="/productdetails"
+          href="/singlepage"
           className="flex items-center gap-2 px-4 py-2 border rounded hover:bg-gray-300 transition"
         >
           <FiShoppingCart />
