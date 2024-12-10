@@ -38,7 +38,7 @@ const Card: React.FC<CardProps> = ({ src, alt, title, price }) => {
 
       <div className="absolute bottom-2 right-2 text-black p-2 rounded-full">
         <Link
-          href="/productdetails"
+          href="/singlepage"
           className="flex items-center gap-2 px-4 py-2 border rounded hover:bg-gray-300 transition"
         >
           <FiShoppingCart />
