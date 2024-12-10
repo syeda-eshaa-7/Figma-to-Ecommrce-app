@@ -1,41 +1,44 @@
-// ProductCard.tsx
-import Link from 'next/link';
-import Image from 'next/image';
-import { FiShoppingCart } from 'react-icons/fi';
+// components/Card.tsx
+'use client'
 
-interface ProductCardProps {
+import Link from 'next/link';
+import { FiShoppingCart } from 'react-icons/fi';
+import Image from 'next/image';
+
+interface CardProps {
   src: string;
   alt: string;
   title: string;
   price: string;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ src, alt, title, price }) => {
+const Card: React.FC<CardProps> = ({ src, alt, title, price }) => {
   return (
-    <div className="p-4 md:w-1/3 sm:mb-0 mb-6 relative">
+    <div className="p-4 md:w-1/3 sm:w-full w-full mb-6 relative group">
       <div className="rounded-lg h-64 overflow-hidden relative">
-        {/* Wrap the image with a Link component */}
-        <Link href={`/singlepage`} passHref>
-          <Image
-            alt={alt}
-            className="object-cover object-center h-full w-full cursor-pointer"
-            src={src}
-            width={500} // Adjust width as per your needs
-            height={400} // Adjust height as per your needs
+        <Link href={`/products/${encodeURIComponent(title.toLowerCase().replace(/ /g, '-'))}`}>
+          <Image 
+            alt={alt} 
+            className="object-cover object-center h-full w-full transition-transform duration-300 group-hover:scale-105" 
+            src={src} 
+            width={500} // Adjust width as needed
+            height={400} // Adjust height as needed
           />
         </Link>
       </div>
 
-      {/* Product Title */}
-      <h2 className="text-xl font-medium title-font text-gray-900 mt-5">{title}</h2>
+      <div className="mt-5 space-y-2">
+        <h2 className="text-xl font-medium title-font text-gray-900">
+          {title}
+        </h2>
+        <p className="text-lg font-semibold text-gray-800">
+          {price}
+        </p>
+      </div>
 
-      {/* Price */}
-      <p className="text-lg text-gray-800 mt-2">{price}</p>
-
-      {/* Cart Icon - Bottom Center */}
       <div className="absolute bottom-2 right-2 text-black p-2 rounded-full">
         <Link
-          href="/singlepage"
+          href="/productdetails"
           className="flex items-center gap-2 px-4 py-2 border rounded hover:bg-gray-300 transition"
         >
           <FiShoppingCart />
@@ -45,4 +48,4 @@ const ProductCard: React.FC<ProductCardProps> = ({ src, alt, title, price }) => 
   );
 };
 
-export default ProductCard;
+export default Card;
