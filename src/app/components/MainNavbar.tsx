@@ -31,7 +31,7 @@ const MainNavbar = () => {
                 ${
                   activeLink === link.href
                     ? "text-#007580 font-bold"
-                    : "text-gray-700 hover:text-green-400"
+                    : "text-gray-700 hover:text-[#007580] "
                 } 
                 hover:drop-shadow-[0_0_7px_rgba(34,197,94,0.5)]`}
             >
